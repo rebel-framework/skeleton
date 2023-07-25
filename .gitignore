@@ -26,6 +26,7 @@ composer.lock
 **/node_modules
 *.log
 /lib
+/bin
 tmp
 .changelog
 coverage/

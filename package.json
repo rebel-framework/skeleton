@@ -3,11 +3,25 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "dev": "echo 'TODO'",
+    "build": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts'",
+    "watch": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts' --watch",
     "test": "jest"
   },
+  "targets": {
+    "frontend": {
+      "source": "frontend/index.html"
+    },
+    "backend": {
+      "source": "backend/index.ts"
+    }
+  },
+  "types": "dist/types.d.ts",
   "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5",
     "@jest/globals": "^29.6.1",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.2",
