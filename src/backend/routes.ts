@@ -2,12 +2,12 @@
 // app.get('/signin', () => {});
 import hello from './controllers/hello';
 
-// type Route = {
-//   get: (path, controller) => {};
-// };
+import * as router from '@rebel/core/router';
 
-// const route: Route = {};
+router.get('/hello', hello);
 
-// route.get('/hello', hello);
+router.post('/store', (request) => {
+  console.log(request);
+});
 
-hello({});
+export default router;
