@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "echo 'TODO'",
+    "start": "node bin/backend/index.js",
     "build": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts'",
     "watch": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts' --watch",
     "test": "jest"
