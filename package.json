@@ -8,14 +8,6 @@
     "watch": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts' --watch",
     "test": "jest"
   },
-  "targets": {
-    "frontend": {
-      "source": "frontend/index.html"
-    },
-    "backend": {
-      "source": "backend/index.ts"
-    }
-  },
   "types": "dist/types.d.ts",
   "devDependencies": {
     "@babel/cli": "^7.22.9",
