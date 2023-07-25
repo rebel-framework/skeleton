@@ -2,7 +2,7 @@ type Controller = any;
 type Response = any;
 type Request = any;
 
-export default (request): Response => {
+export default async (request): Promise<Response> => {
   console.log('hello route handler!', { request });
 
   return {
