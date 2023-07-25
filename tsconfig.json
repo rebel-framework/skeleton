@@ -5,7 +5,8 @@
     "esModuleInterop": true,
     "preserveConstEnums": true,
     "isolatedModules": true,
-    "outDir": "bin"
+    "outDir": "bin",
+    "rootDir": "src"
   },
   "include": ["src/**/*"],
   "exclude": ["**/*.test.ts"]
