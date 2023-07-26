@@ -1,6 +1,6 @@
 import hello from './controllers/hello';
 
-import { router, Middleware } from '@rebel/core';
+import { createRouter, Middleware } from '@rebel/core';
 
 const logMiddleware: Middleware = async (request, next) => {
   console.log(`Received ${request.method} request to ${request.path}`);
@@ -16,6 +16,8 @@ const dummyMiddleware: Middleware = async (request, next) => {
 
 const middleware: Middleware[] = [logMiddleware, dummyMiddleware];
 
+const router = createRouter();
+
 router.get('/hello', hello, middleware);
 
 router.post(
@@ -28,5 +30,7 @@ router.post(
   },
   middleware
 );
+
+router.get('/article/{id}', async ({ id }) => console.log('Deleting', id));
 
 export default router;
