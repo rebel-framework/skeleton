@@ -10,10 +10,17 @@ const backend = async () => {
 
   const responseFromStore = await router.handleRequest({
     method: 'POST',
-    path: '/store',
+    path: '/store/789',
   });
 
   console.log('Response from /store', responseFromStore);
+
+  const responseFromArticle = await router.handleRequest({
+    method: 'GET',
+    path: '/article/1234',
+  });
+
+  console.log('Response from /article', responseFromArticle);
 };
 
 backend();
