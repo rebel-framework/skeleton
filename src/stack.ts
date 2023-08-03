@@ -1,5 +1,7 @@
 import { useStack } from '@rebel/core';
 
-const stack = useStack('RebelApp');
+const app = useStack('RebelApp');
 
-stack.queue('name', {});
+app.queue('name', {});
+
+export default app;
