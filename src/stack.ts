@@ -21,6 +21,12 @@ const lambda = stack.lambda('RebelMonoLambdaFunction', {
   runtime: Runtime.NODEJS_18_X,
   timeout: Duration.seconds(10),
   memorySize: 256,
+  environment: {
+    // Add your environment variables here
+    MESSAGE: 'Hello, World!',
+    OTHER_VAR: 'Some other value',
+    // etc...
+  },
 });
 
 // Create an API Gateway

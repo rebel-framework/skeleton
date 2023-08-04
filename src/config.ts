@@ -1,11 +1,12 @@
-import { env, Manifest } from '@rebel/core';
+import { env, Config } from '@rebel/core';
 
-const manifest: Manifest = {
-  // Define any project-specific properties here
-  app: {},
+export const config: Config = {
+  app: {
+    // Define any project-specific properties here
+  },
   name: env('NAME', 'Example'),
   domain: env('DOMAIN', 'example.com'),
-  environment: env('ENVIRONMENT', 'local'),
+  environment: env('ENVIRONMENT', 'dev'),
   debug: env('DEBUG', true),
   aws: {
     key: env('AWS_KEY', ''),
@@ -17,4 +18,4 @@ const manifest: Manifest = {
   },
 };
 
-export default manifest;
+export default config;

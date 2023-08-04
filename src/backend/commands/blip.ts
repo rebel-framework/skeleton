@@ -1,9 +1,6 @@
-import { include, root, useManifest } from '@rebel/core';
+import { include, root, useConfig, env } from '@rebel/core';
 
 export default async (args): Promise<any> => {
-  const manifest = include('manifest');
-  console.log(manifest);
-
-  const { default: stack } = include('stack');
-  console.log(stack);
+  const config = useConfig();
+  console.log(config.aws.region);
 };
