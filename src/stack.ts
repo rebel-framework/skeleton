@@ -1,7 +1,6 @@
 import { useStack, Stack } from '@rebel/core';
 import { InlineCode, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Duration } from 'aws-cdk-lib';
-// import { Code } from 'aws-cdk-lib/aws-lambda';
 import { LambdaIntegration } from 'aws-cdk-lib/aws-apigateway';
 
 const stack: Stack = useStack('Rebel');
