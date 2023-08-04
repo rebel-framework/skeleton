@@ -10,6 +10,7 @@ const lambda = stack.lambda('RebelMonoLambdaFunction', {
   code: new InlineCode(`
     exports.handler = async function(event, context) { 
       console.log("EVENT: \\n" + JSON.stringify(event, null, 2));
+      console.log('MESSAGE', process.env.MESSAGE);
       return {
         statusCode: 200,
         headers: { "Content-Type": "application/json" },
