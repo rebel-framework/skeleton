@@ -1,4 +1,4 @@
-import { Request, Context, response, errorHandler } from '@rebel/core';
+import { Request, Context, errorHandler } from '@rebel/core';
 
 import router from './routes';
 
