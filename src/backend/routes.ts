@@ -1,17 +1,25 @@
 import hello from './controllers/hello';
 
-import { useRouter, Middleware } from '@rebel/core';
+import { useRouter, Context, Handler, Middleware, Request } from '@rebel/core';
 
-const logMiddleware: Middleware = async (request, next) => {
+const logMiddleware: Middleware = async (
+  request: Request,
+  context: Context,
+  next: Handler
+) => {
   console.log(`Received ${request.method} request to ${request.path}`);
   // Call the next middleware or main route handler
-  return await next(request);
+  return await next(request, context);
 };
 
-const dummyMiddleware: Middleware = async (request, next) => {
+const dummyMiddleware: Middleware = async (
+  request: Request,
+  context: Context,
+  next: Handler
+) => {
   console.log(`Dummy Middleware`);
   // Call the next middleware or main route handler
-  return await next(request);
+  return await next(request, context);
 };
 
 const middleware: Middleware[] = [logMiddleware, dummyMiddleware];
@@ -22,7 +30,7 @@ router.get('/hello', hello, middleware);
 
 router.post(
   '/store/:id',
-  async ({ request }) => {
+  async ({ request, context }) => {
     return {
       code: 200,
       message: 'Success',
