@@ -26,6 +26,8 @@ const middleware: Middleware[] = [logMiddleware, dummyMiddleware];
 
 const router = useRouter();
 
+// router.get('/', async () => console.log('HOME'));
+
 router.get('/hello', hello, middleware);
 
 router.post(

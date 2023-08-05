@@ -1,12 +1,10 @@
-type Controller = any;
-type Response = any;
-type Request = any;
+import { Context, Request, Response, response } from '@rebel/core';
 
-export default async (request): Promise<Response> => {
-  console.log('hello route handler!', { request });
+export default async function hello(
+  request: Request,
+  context: Context
+): Promise<Response> {
+  console.log('HELLO');
 
-  return {
-    code: 200,
-    message: 'Success',
-  };
-};
+  return response(200, { message: 'Hello from Lambda!' });
+}
