@@ -2,6 +2,7 @@
 
 TODO:
 [x] Deploy command to build handler before deploying? - Not necessary thanks to builtin cdk functions
+[ ] Figure a way to use framework handler instead of local
 [ ] Attach domain name to deployment
 [ ] Deploy frontend stack
 [ ] Ability to destroy stacks (cdk destroy --app ...)
