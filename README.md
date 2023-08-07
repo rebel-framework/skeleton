@@ -5,7 +5,7 @@ TODO:
 [ ] Figure a way to use framework handler instead of local
 [ ] Attach domain name to deployment
 [ ] Deploy frontend stack
-[ ] Ability to destroy stacks (cdk destroy --app ...)
+[x] Ability to destroy stacks (cdk destroy --app ...)
 [ ] Deploy DynamoDB table and experiment with single table design pattern
 [ ] Local development workflow
 [ ] Update retention log based on environment
