@@ -1,20 +1,12 @@
-import { useStack, Stack, root } from '@rebel/core';
-import { Runtime } from 'aws-cdk-lib/aws-lambda';
-import { Duration } from 'aws-cdk-lib';
-import { LambdaIntegration } from 'aws-cdk-lib/aws-apigateway';
+import { root } from '@rebel/core';
+import { useStack, Stack } from '@rebel/stack';
 import * as S3Deployment from 'aws-cdk-lib/aws-s3-deployment';
 import { PolicyStatement, Effect } from 'aws-cdk-lib/aws-iam';
 
-const stack: Stack = useStack('Rebel');
+const stack: Stack = useStack('RebelBackend');
 
-// Define the Lambda function
-const lambda = stack.lambda('RebelLambda', {
-  entry: root('src/backend/handler.ts'), // Point to your TypeScript file
-  // entry: root('node_modules/@rebel/core/src/handler.ts'), // Point to your TypeScript file
-  handler: 'handler', // Specify the exported handler function in your TypeScript file
-  runtime: Runtime.NODEJS_18_X, // Set the runtime to Node.js 18.x
-  timeout: Duration.seconds(10), // Optionally set a timeout
-  memorySize: 256, // Optionally set the amount of memory allocated
+const lambda = stack.lambda.nodeFunction('RebelMonoLambda', {
+  entry: root('src/backend/handler.ts'),
   environment: {
     // Add your environment variables here
     MESSAGE: 'Hello, World!',
@@ -23,25 +15,24 @@ const lambda = stack.lambda('RebelLambda', {
 });
 
 // Create an API Gateway
-const api = stack.apiGateway('RebelApi', {
+const api = stack.apiGateway.restApi('RebelApiGateway', {
   restApiName: 'RebelApiService',
   description: 'This service serves as a front for RebelMonoLambdaFunction.',
 });
 
 // Create a catch-all proxy resource
-const proxyResource = api.root.addResource('{proxy+}');
-
-// Add a ANY method to the catch-all proxy resource, connected to your Lambda function
-proxyResource.addMethod('ANY', new LambdaIntegration(lambda));
+stack.apiGateway.proxyResource(api, lambda);
 
 // Define the S3 bucket
-const siteBucket = stack.bucket('RebelWebsiteBucket', {
+const siteBucket = stack.s3.bucket('RebelStaticWebsiteBucket', {
   websiteIndexDocument: 'index.html',
   publicReadAccess: false, // Since publicReadAccess is false, we need to define our own bucket policy
 });
 
 // Define the Origin Access Identity
-const originAccessIdentity = stack.originAccessIdentity('OAI');
+const originAccessIdentity = stack.cloudFront.originAccessIdentity(
+  'RebelOriginAccessIdentity'
+);
 
 // Define a bucket policy to allow CloudFront to access the bucket
 const bucketPolicy = new PolicyStatement({
@@ -55,14 +46,14 @@ const bucketPolicy = new PolicyStatement({
 siteBucket.addToResourcePolicy(bucketPolicy);
 
 // Define the S3 bucket deployment
-stack.bucketDeployment(
+stack.s3.bucketDeployment(
   'RebelWebsiteDeployment',
   S3Deployment.Source.asset(root('src/frontend')),
   siteBucket
 );
 
 // Define the CloudFront distribution
-const distribution = stack.cloudFrontWebDistribution({
+const distribution = stack.cloudFront.webDistribution({
   originConfigs: [
     {
       s3OriginSource: {
@@ -76,7 +67,7 @@ const distribution = stack.cloudFrontWebDistribution({
 });
 
 // Print out the domain name of the CloudFront distribution
-stack.output('DistributionDomainName', {
+stack.cdk.output('DistributionDomainName', {
   value: distribution.domainName,
 });
 
