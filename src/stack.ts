@@ -1,11 +1,10 @@
 import { backend, frontend, useStack, Stack } from '@rebel/stack';
 
-const stack: Stack = useStack('RebelBackend');
+const stack: Stack = useStack('Rebel');
 
 backend(stack, {
   // Add your environment variables here
   MESSAGE: 'Hello, World!',
-  OTHER_VAR: 'Some other value',
 });
 
 frontend(stack);

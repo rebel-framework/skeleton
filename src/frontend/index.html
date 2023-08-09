@@ -4,7 +4,30 @@
     <title>Hello, World!</title>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <script>
+      (() => {
+        fetch(
+          'https://h7pqxfa41h.execute-api.eu-west-1.amazonaws.com/prod/hello'
+        )
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            document.getElementById('title').innerText = data.message;
+          })
+          .catch((error) => {
+            console.error(
+              'There was a problem with the fetch operation:',
+              error.message
+            );
+          });
+      })();
+    </script>
+    <h1 id="title">Hello, World!</h1>
     <p>This is a basic HTML document displaying "Hello, World!"</p>
   </body>
 </html>
