@@ -15,7 +15,7 @@ useBackend(stack, {
 
 const { siteBucket } = useFrontend(stack);
 
-usePipeline(siteBucket);
+usePipeline(stack, siteBucket);
 
 // Deploy your stack
 stack.deploy();
