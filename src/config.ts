@@ -13,6 +13,11 @@ export const config: Config = {
     secret: env('AWS_SECRET', ''),
     region: env('AWS_REGION', 'eu-west-1'),
   },
+  github: {
+    username: env('GITHUB_USERNAME', ''),
+    repository: env('GITHUB_REPOSITORY', ''),
+    token: env('GITHUB_TOKEN', ''),
+  },
   database: {
     softDeletes: env('DATABASE_SOFT_DELETES', true),
   },

@@ -1,13 +1,21 @@
-import { backend, frontend, useStack, Stack } from '@rebel/stack';
+import {
+  useBackend,
+  useFrontend,
+  usePipeline,
+  useStack,
+  Stack,
+} from '@rebel/stack';
 
 const stack: Stack = useStack('Rebel');
 
-backend(stack, {
+useBackend(stack, {
   // Add your environment variables here
   MESSAGE: 'Hello, World!',
 });
 
-frontend(stack);
+const { siteBucket } = useFrontend(stack);
+
+usePipeline(siteBucket);
 
 // Deploy your stack
 stack.deploy();
