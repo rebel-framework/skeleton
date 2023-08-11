@@ -1,4 +1,4 @@
-import { Context, Request, Response, response } from '@rebel/core';
+import { Context, Request, Response, response } from '@rebel-framework/core';
 
 export default async function hello(
   request: Request,

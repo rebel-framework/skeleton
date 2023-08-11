@@ -4,7 +4,7 @@ import {
   usePipeline,
   useStack,
   Stack,
-} from '@rebel/stack';
+} from '@rebel-framework/stack';
 
 const stack: Stack = useStack('Rebel');
 

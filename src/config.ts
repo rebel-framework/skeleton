@@ -1,4 +1,4 @@
-import { env, Config } from '@rebel/core';
+import { env, Config } from '@rebel-framework/core';
 
 export const config: Config = {
   app: {

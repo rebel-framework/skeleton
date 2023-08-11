@@ -1,6 +1,12 @@
 import hello from './controllers/hello';
 
-import { useRouter, Context, Handler, Middleware, Request } from '@rebel/core';
+import {
+  useRouter,
+  Context,
+  Handler,
+  Middleware,
+  Request,
+} from '@rebel-framework/core';
 
 const logMiddleware: Middleware = async (
   request: Request,
