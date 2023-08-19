@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node bin/backend/index.js",
-    "build": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts'",
-    "watch": "rm -rf bin && tsc && babel src --out-dir bin --extensions '.ts' --watch",
+    "start": "node build/backend/index.js",
+    "build": "rm -rf build && tsc && babel src --out-dir build --extensions '.ts'",
+    "watch": "rm -rf build && tsc && babel src --out-dir build --extensions '.ts' --watch",
     "test": "jest"
   },
   "types": "dist/types.d.ts",
+  "dependencies": {
+    "@rebel-framework/cli": "^0.2.5",
+    "@rebel-framework/core": "^0.2.5",
+    "@rebel-framework/response": "^0.2.5",
+    "@rebel-framework/router": "^0.2.5",
+    "@rebel-framework/stack": "^0.2.5"
+  },
   "devDependencies": {
     "@babel/cli": "^7.22.9",
     "@babel/core": "^7.22.9",

@@ -1,11 +1,8 @@
-import {
-  Request,
-  Response,
-  Context,
-  errorHandler,
-} from '@rebel-framework/core';
+import { Request, Context } from '@rebel-framework/router';
+import { Response } from '@rebel-framework/response';
 
 import router from './routes';
+import { errorHandler } from './errors';
 
 /**
  * Mono lambda handler for the whole project.

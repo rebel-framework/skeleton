@@ -6,7 +6,7 @@ import {
   Handler,
   Middleware,
   Request,
-} from '@rebel-framework/core';
+} from '@rebel-framework/router';
 
 const logMiddleware: Middleware = async (
   request: Request,
