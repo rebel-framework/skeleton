@@ -7,7 +7,7 @@ TODO:
 [x] Refactor useStack to be more modular
 [x] Publish package to npm
 [x] Turn `skeleton` into a monorepo
-[ ] Ajudst framework expectations to new structure
+[ ] Ajudst framework expectations to new structure (in progress)
 [ ] `useEnv` should use default `filePath = root('.env')` if none provided
 [ ] Update deploy command to take a `stack` parameter
 [ ] Move `eslint` config out of package.json
