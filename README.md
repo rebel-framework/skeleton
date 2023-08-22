@@ -5,7 +5,13 @@ TODO:
 [x] Deploy frontend stack
 [x] Ability to destroy stacks (cdk destroy --app ...)
 [x] Refactor useStack to be more modular
-[ ] Publish package to npm
+[x] Publish package to npm
+[x] Turn `skeleton` into a monorepo
+[ ] Ajudst framework expectations to new structure
+[ ] `useEnv` should use default `filePath = root('.env')` if none provided
+[ ] Update deploy command to take a `stack` parameter
+[ ] Move `eslint` config out of package.json
+[ ] Move `prettier` config out of package.json
 [ ] Add Pipeline to automatically deploy on push to xxx branch
 [ ] Add github workflows
 [ ] Attach domain name to deployment
@@ -14,3 +20,4 @@ TODO:
 [ ] Update retention log based on environment
 [ ] Ensure there is an alarm for costs (optional but encouraged)
 [ ] Add test coverage
+[ ] Improve Windows support

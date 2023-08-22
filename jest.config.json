@@ -1,0 +1,17 @@
+{
+  "verbose": true,
+  "projects": [
+    {
+      "displayName": "backend",
+      "preset": "ts-jest",
+      "testEnvironment": "node",
+      "testMatch": ["<rootDir>/stacks/backend/**/?(*.)+(spec|test).[jt]s?(x)"]
+    },
+    {
+      "displayName": "frontend",
+      "preset": "ts-jest",
+      "testEnvironment": "browser",
+      "testMatch": ["<rootDir>/stacks/frontend/**/?(*.)+(spec|test).[jt]s?(x)"]
+    }
+  ]
+}

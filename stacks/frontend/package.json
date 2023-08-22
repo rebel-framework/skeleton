@@ -1,0 +1,12 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "mkdir -p build && cp -r src/* build",
+    "test": "test -e ./src/index.html"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "build/index.js",
+  "exports": {
+    ".": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "start": "node build/backend/index.js",
+    "build": "tsc && babel src --root-mode upward --out-dir build --extensions '.ts'",
+    "watch": "tsc && babel src --root-mode upward --out-dir build --extensions '.ts' --watch",
+    "test": "jest --passWithNoTests",
+    "type-check": "npx tsc",
+    "format": "npx prettier .",
+    "lint": "npx eslint src/**.ts"
+  },
+  "types": "dist/types.d.ts",
+  "dependencies": {
+    "@rebel-framework/core": "^0.2.5",
+    "@rebel-framework/response": "^0.2.5",
+    "@rebel-framework/router": "^0.2.5"
+  },
+  "devDependencies": {
+    "@rebel-framework/cli": "^0.2.5"
+  }
+}

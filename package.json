@@ -1,27 +1,18 @@
 {
-  "name": "appname",
+  "name": "root",
   "version": "1.0.0",
   "license": "MIT",
-  "scripts": {
-    "start": "node build/backend/index.js",
-    "build": "rm -rf build && tsc && babel src --out-dir build --extensions '.ts'",
-    "watch": "rm -rf build && tsc && babel src --out-dir build --extensions '.ts' --watch",
-    "test": "jest"
-  },
-  "types": "dist/types.d.ts",
-  "dependencies": {
-    "@rebel-framework/cli": "^0.2.5",
-    "@rebel-framework/core": "^0.2.5",
-    "@rebel-framework/response": "^0.2.5",
-    "@rebel-framework/router": "^0.2.5",
-    "@rebel-framework/stack": "^0.2.5"
-  },
+  "workspaces": [
+    "stacks/backend",
+    "stacks/frontend"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.22.9",
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-typescript": "^7.22.5",
     "@jest/globals": "^29.6.1",
+    "@rebel-framework/stack": "^0.2.5",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.2",
     "esbuild": "^0.18.17",

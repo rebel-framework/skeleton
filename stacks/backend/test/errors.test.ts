@@ -1,4 +1,4 @@
-import { errorHandler } from '../errors';
+import { errorHandler } from '../src/errors';
 import { MethodNotAllowedError, NotFoundError } from '@rebel-framework/router';
 import { response } from '@rebel-framework/response';
 

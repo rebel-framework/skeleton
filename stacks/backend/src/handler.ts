@@ -17,7 +17,7 @@ export async function handler(
   context: Context
 ): Promise<Response> {
   try {
-    return await router.handle(request, context);
+    return (await router.handle(request, context)) as Response;
   } catch (error) {
     return errorHandler(error);
   }
