@@ -20,11 +20,11 @@
   },
   "types": "dist/types.d.ts",
   "dependencies": {
-    "@rebel-framework/core": "^0.2.5",
-    "@rebel-framework/response": "^0.2.5",
-    "@rebel-framework/router": "^0.2.5"
+    "@rebel-framework/core": "^0.3.0",
+    "@rebel-framework/response": "^0.3.0",
+    "@rebel-framework/router": "^0.3.0"
   },
   "devDependencies": {
-    "@rebel-framework/cli": "^0.2.5"
+    "@rebel-framework/cli": "^0.3.0"
   }
 }

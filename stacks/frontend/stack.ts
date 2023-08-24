@@ -38,7 +38,7 @@ websiteBucket.addToResourcePolicy(bucketPolicy);
 // Define the S3 bucket deployment
 stack.s3.bucketDeployment(
   'RebelWebsiteDeployment',
-  S3Deployment.Source.asset(root('src/frontend')),
+  S3Deployment.Source.asset(root('stacks/frontend/build')),
   websiteBucket
 );
 

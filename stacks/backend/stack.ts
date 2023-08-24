@@ -19,6 +19,9 @@ const api = stack.apiGateway.restApi('RebelApiGateway', {
   description: 'This service serves as a front for RebelMonoLambdaFunction.',
 });
 
+// Create a catch-all proxy resource
+stack.apiGateway.proxyResource(api, lambda);
+
 // Deploy your stack
 stack.deploy();
 
