@@ -1,21 +1,23 @@
-import {
-  useBackend,
-  useFrontend,
-  usePipeline,
-  useStack,
-  Stack,
-} from '@rebel-framework/stack';
+import { root } from '@rebel-framework/core';
+import { useStack, Stack } from '@rebel-framework/stack';
 
-const stack: Stack = useStack('Rebel');
+const stack: Stack = useStack('RebelBackend');
 
-useBackend(stack, {
-  // Add your environment variables here
-  MESSAGE: 'Hello, World!',
+// Create the mono lambda function
+const lambda = stack.lambda.nodeFunction('RebelMonoLambda', {
+  entry: root('stacks/backend/src/handler.ts'),
+  handler: 'handler',
+  environment: {
+    // Add your environment variables here
+    MESSAGE: 'Hello, World!',
+  },
 });
 
-const { siteBucket } = useFrontend(stack);
-
-usePipeline(stack, siteBucket);
+// Create an API Gateway
+const api = stack.apiGateway.restApi('RebelApiGateway', {
+  restApiName: 'RebelApiService',
+  description: 'This service serves as a front for RebelMonoLambdaFunction.',
+});
 
 // Deploy your stack
 stack.deploy();
