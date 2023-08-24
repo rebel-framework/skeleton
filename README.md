@@ -10,6 +10,7 @@ TODO:
 [ ] Ajudst framework expectations to new structure (in progress)
 [ ] `useEnv` should use default `filePath = root('.env')` if none provided
 [ ] Update deploy command to take a `stack` parameter
+[ ] Create clear command to remove all artifacts cache etc.
 [ ] Move `eslint` config out of package.json
 [ ] Move `prettier` config out of package.json
 [ ] Add Pipeline to automatically deploy on push to xxx branch
